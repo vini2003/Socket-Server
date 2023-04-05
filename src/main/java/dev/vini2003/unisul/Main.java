@@ -1,5 +1,6 @@
 package dev.vini2003.unisul;
 
+import javax.swing.*;
 import java.net.*;
 import java.io.*;
 
@@ -8,7 +9,9 @@ public class Main {
         try {
             Socket socket;
 
-            try (var servidor = new ServerSocket(4444)) {
+            var port = Integer.parseInt(JOptionPane.showInputDialog("Digite a porta: "));
+
+            try (var servidor = new ServerSocket(port)) {
                 System.out.println("Aguardando cliente!");
                 // espera
                 socket = servidor.accept();
